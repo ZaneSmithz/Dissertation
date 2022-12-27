@@ -6,8 +6,8 @@ import {Container, Row, Col} from 'react-bootstrap'
 import SideBar from './Components/SideBar';
 import React from 'react';
 
+const App = () => {
 
-function App() {
   return (
     <Router>
       <Container>
