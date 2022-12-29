@@ -22,8 +22,6 @@ const Dashboard = (props) => {
       },[])
 
       console.log(users);
-      
-
 
     return (
         <div className="homeCardTopSpacing mx-5" md={3}>

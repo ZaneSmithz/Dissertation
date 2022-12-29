@@ -1,33 +1,36 @@
-import { createClient } from "contentful";
+import { useEffect, useState } from "react";
 
-const useContentful = () => {
-    const client = createClient({
-        space: "33ogiiz7p97p",
-        accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-        host: "preview.contentful.com",
-    });
+const { REACT_APP_CONTENTFUL_ACCESS_TOKEN, REACT_APP_CONTENTFUL_SPACE} = process.env
+const useContentful = (query) => {
+    let [data, setData] = useState(null);
+    let[errors, setErrors] = useState(null);
 
-    const getModules = async () => {
-        try {
-            const entries = await client.getEntries({
-                content_type: "module",
-                select: "fields",
-            });
-            const sanitizedEntries = entries.items.map((item) => {
-                const chapters = item.fields.chapter.content;
-
-                return {
-                    ...item.fields,
-                };
-            });
-            return sanitizedEntries;
+    useEffect(() => {
+        window.fetch(
+                `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_CONTENTFUL_SPACE}?access_token=${REACT_APP_CONTENTFUL_ACCESS_TOKEN}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${REACT_APP_CONTENTFUL_ACCESS_TOKEN}`
+                    },
+                    body: JSON.stringify({ query }),
+                }
+            ) 
             
-        } catch (error) {
-            console.log(`error fetching Modules: ${error}`);
-            
-        }
-    }
-    return { getModules };
+            .then((response) => response.json())
+            .then(({data, errors}) => {
+                if(errors) {
+                    setErrors(errors)
+                }
+                if(data) {
+                    setData(data)
+                }
+            })
+            .catch((error => setErrors([error])));
+    }, [query]);
+
+    return { data, errors };
 }
 
 export default useContentful;
