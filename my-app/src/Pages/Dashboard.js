@@ -24,7 +24,8 @@ const Dashboard = (props) => {
       console.log(users);
 
     return (
-        <div className="homeCardTopSpacing mx-5" md={3}>
+      <Row>
+        <div className="homeCardTopSpacing mx-5 my-5" md={3}>
             {users.map((user) => (
                 <HomeCard
                 firstName={user.data.first_name}
@@ -32,6 +33,7 @@ const Dashboard = (props) => {
                 />
             ))}
         </div>
+      </Row>
     )
 }
 
