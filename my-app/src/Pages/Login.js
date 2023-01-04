@@ -1,14 +1,54 @@
-import React from 'react'
-import { Card } from 'react-bootstrap';
+import React, { useRef, useState } from 'react'
+import { Card, Form, Button, Alert } from 'react-bootstrap'
+import { UseAuth } from '../Contexts/AuthContext'
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+    const emailRef= useRef()
+    const passwordRef = useRef()
+    const { login, currentUser } = UseAuth()
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            setError("");
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate('/');
+            
+        }
+        catch {
+            setError("Failed to sign in");
+        }
+        
+    }
+
 
     return (
-        <Card>
-            <Card.Body>
-                <h2 className="text-center mb-4">Login</h2>
-            </Card.Body>
-        </Card>
+        <div className='containerColourNoNav'>
+
+            <Form onSubmit={handleSubmit}>
+                <h> Login</h>
+                {error && <Alert variant="danger"> {error} </Alert>}
+                {currentUser && <h>{currentUser.email}</h>}
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control required type="email"  ref={emailRef} placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control required type="password" ref={passwordRef} placeholder="Password" />
+                </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+            </Form>
+        </div>
 
 
     )

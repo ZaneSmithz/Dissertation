@@ -8,11 +8,13 @@ import React from 'react';
 import Login from './Pages/Login';
 import WithoutNav from './WithoutNav.';
 import WithNav from './WithNav';
+import { AuthProvider } from './Contexts/AuthContext';
 
 const App = () => {
 
   return (
     <Router>
+      <AuthProvider>
           <Routes>
             <Route element={<WithoutNav/>}>
               <Route path="/login" element={<Login/>}/>
@@ -22,8 +24,9 @@ const App = () => {
                 <Route path="/manager" element={<ClientManager/>}/>
             </Route>
           </Routes>   
-
-     </Router>
+        </AuthProvider>
+    </Router>
+     
   );
 }
 
