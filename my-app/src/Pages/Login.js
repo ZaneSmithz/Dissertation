@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
     const emailRef= useRef()
     const passwordRef = useRef()
-    const { login, currentUser } = UseAuth()
+    const { login } = UseAuth()
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -15,24 +16,22 @@ const Login = () => {
 
         try {
             setError("");
+            setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
-            navigate('/');
+            navigate('/dashboard');
             
         }
         catch {
             setError("Failed to sign in");
         }
-        
+        setLoading(false);
     }
-
 
     return (
         <div className='containerColourNoNav'>
-
             <Form onSubmit={handleSubmit}>
                 <h> Login</h>
                 {error && <Alert variant="danger"> {error} </Alert>}
-                {currentUser && <h>{currentUser.email}</h>}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control required type="email"  ref={emailRef} placeholder="Enter email" />

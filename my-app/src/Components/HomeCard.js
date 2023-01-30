@@ -5,13 +5,21 @@ import './CSS/Dashboard.css';
 const HomeCard = (props) => {
     return (
         <Card className="homeCardMain homeCardSpacing">
-            <div className="homeCardTextAlign">
+        
                 <Card.Body>
-                    <p1 className="mx-5">{props.firstName}  {props.lastName}</p1>
-                    <p1 className="mx-5">{props.moduleNum} </p1>
-                    <p1 className="mx-5">{props.chapterNum}</p1>
+                <div className="homeCardTextAlign">
+                    <div className='test'>
+                    <p> {props.firstName} {props.lastName}</p>
+                    </div>
+                    <div className='test'>
+                    <p className="mx-5">Module {props.moduleNum}</p>
+                    </div>
+                    <div className='test'>
+                    <p className="mx-3">Chapter {props.chapterNum}</p>
+                    </div>
+                    </div>
                 </Card.Body>
-            </div>
+        
             
         </Card>
     

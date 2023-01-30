@@ -9,8 +9,12 @@ import Login from './Pages/Login';
 import WithoutNav from './WithoutNav.';
 import WithNav from './WithNav';
 import { AuthProvider } from './Contexts/AuthContext';
+import PrivateRoutes from './Components/PrivateRoutes';
 
 const App = () => {
+  
+
+  const currentUser = false;
 
   return (
     <Router>
@@ -19,9 +23,11 @@ const App = () => {
             <Route element={<WithoutNav/>}>
               <Route path="/login" element={<Login/>}/>
             </Route>
-            <Route path="/" element={<WithNav/>}>
-                <Route path="/" element={<Dashboard/>}/>
-                <Route path="/manager" element={<ClientManager/>}/>
+            <Route element = {<PrivateRoutes />} >
+              <Route path="/" element={ <WithNav/>}>
+                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/manager" element={<ClientManager/>}/>
+              </Route>
             </Route>
           </Routes>   
         </AuthProvider>
