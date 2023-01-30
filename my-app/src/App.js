@@ -6,16 +6,12 @@ import {Container, Row, Col} from 'react-bootstrap'
 import SideBar from './Components/SideBar';
 import React from 'react';
 import Login from './Pages/Login';
-import WithoutNav from './WithoutNav.';
-import WithNav from './WithNav';
+import WithoutNav from './Components/WithoutNav.';
+import WithNav from './Components/WithNav';
 import { AuthProvider } from './Contexts/AuthContext';
 import PrivateRoutes from './Components/PrivateRoutes';
 
 const App = () => {
-  
-
-  const currentUser = false;
-
   return (
     <Router>
       <AuthProvider>

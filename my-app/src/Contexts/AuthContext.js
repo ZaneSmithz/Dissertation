@@ -20,9 +20,6 @@ const AuthProvider = ({children}) => {
 
     const login = (email, password) => {
         signInWithEmailAndPassword( auth, email, password)
-        .then(data => {
-            setUid(data.user.uid);
-        });
     }
 
     const logout = () => {
@@ -34,7 +31,6 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe =  auth.onAuthStateChanged(user => {
             setCurrentUser(user)
-    
             setLoading(false)
             
         

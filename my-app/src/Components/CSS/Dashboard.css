@@ -57,11 +57,18 @@ body {
     align-items: center;
 }
 
-
-
+.homeCardMain2 {
+    background-color: #323639 !important;
+    box-shadow: 0px 4px white !important;
+    width: 765px;
+    height: 70px !important;
+    margin-left: 4rem;
+    border-radius: 500px;
+}
 
 .homeCardMain {
     background-color: #7E9BA9 !important;
+    box-shadow: 0px 4px white !important;
     width: 765px;
     height: 70px !important;
     margin-left: 4rem;
@@ -83,17 +90,67 @@ body {
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-  }
+}
 
-  .test {
-    width: 50%; /* or any fixed width you want */
+.paragraphBlocking {
+    width: 50%;
     text-align: center;
     margin-block-end: 5px;
     margin-block-start: 5px;
-  }
+}
 
-  .test2 {
-    margin-inline-end: 10rem;
-  }
+.homePageHr {
+    width: 50% !important;
+    border-top: 1px solid white;
+    margin-left: 5rem;
+    margin-top: 3rem !important;
+    position: fixed;
 
+}
+
+.userProfileCard {
+    margin-right: 25rem;
+    margin-left: 25rem;
+    margin-top: 5rem;
+    background-color: #7E9BA9 !important;
+    box-shadow: 0px 4px white !important;
+    width: 264px !important;
+    height: 248px !important;
+    margin-left: 4rem;
+    border-radius: 500px;
+}
+
+.userCardTextAlign {
+    color: white;
+    text-align: center;
+
+}
+
+.homeCardsDivsRowAlign {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.avatarSmall {
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+    justify-content: center;
+}
+
+.userCardNameParagraph {
+    font-weight: bold
+}
+
+.verticalLine {
+    border-left: 1px solid white;
+    height: 80%;
+    position: fixed;
+    margin-top: 2%;
+    right: 30%;
+    margin-left: -3px;
+    top: 0;
+}
 

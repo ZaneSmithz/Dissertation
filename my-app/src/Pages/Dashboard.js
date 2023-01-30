@@ -6,10 +6,12 @@ import {db} from '../firebase'
 import '../Components/CSS/Dashboard.css';
 import HomeCard from '../Components/HomeCard';
 import { UseAuth } from '../Contexts/AuthContext';
+import SelectedNameCard from '../Components/SelectedNameCard';
 
 const Dashboard = (props) => {
     const [users, setUser] = useState([]);
     const { currentUser } = UseAuth();
+    const [selected, setSelected] = useState(null);
 
     useEffect(() => {
       const q = query(collection(db, currentUser.uid));
@@ -20,23 +22,44 @@ const Dashboard = (props) => {
           })))
         })
       },[])
-
-    console.log(currentUser.uid);
       
+    console.log(selected);
+    
     return (
       <Row>
-        <div className="homeCardTopSpacing mx-5 my-5" md={3}>
-            {users.map((user) => (
+        <div className='homeCardsDivsRowAlign'>
+          <div className="homeCardTopSpacing mx-5 my-5" md={3}>
+              {users.map((user) => (
                 <HomeCard
-                firstName={user.data.first_name}
-                lastName={user.data.last_name}
-                moduleNum={user.data.currentModuleNum}
-                chapterNum={user.data.currentChapterNum}
+                  selected={selected}
+                  setSelected={setSelected}
+                  user={user}
+                  firstName={user.data.first_name}
+                  lastName={user.data.last_name}
+                  moduleNum={user.data.currentModuleNum}
+                  chapterNum={user.data.currentChapterNum}
                 />
             ))}
-        </div>
+            </div>
 
-        <hr/>
+          {selected != null ?
+            <SelectedNameCard
+              firstName={selected.data.first_name}
+              lastName={selected.data.last_name}
+              moduleNum={selected.data.currentModuleNum}
+            />
+            :
+            <SelectedNameCard
+              firstName={"Select"}
+              lastName={"Me"}
+              moduleNum={"Temp"}
+            />}
+          </div>
+        
+        <Col>
+        <div className='homePageHr'></div>
+          <div className='verticalLine'></div>
+        </Col>
       </Row>
     )
 }
