@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Card, Button} from 'react-bootstrap';
-import './CSS/Dashboard.css';
+import '../CSS/Dashboard.css';
 
 const HomeCard = (props) => {
 

@@ -3,11 +3,11 @@ import ClientManager from './Pages/ClientManager';
 import "bootstrap/dist/css/bootstrap.css";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap'
-import SideBar from './Components/SideBar';
+import SideBar from './Components/Navigation/SideBar';
 import React from 'react';
 import Login from './Pages/Login';
-import WithoutNav from './Components/WithoutNav.';
-import WithNav from './Components/WithNav';
+import WithoutNav from './Components/Navigation/WithoutNav.';
+import WithNav from './Components/Navigation/WithNav';
 import { AuthProvider } from './Contexts/AuthContext';
 import PrivateRoutes from './Components/PrivateRoutes';
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Nav, Image} from 'react-bootstrap';
-import './CSS/Dashboard.css';
-import { UseAuth } from '../Contexts/AuthContext';
+import '../CSS/Dashboard.css';
+import { UseAuth } from '../../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 

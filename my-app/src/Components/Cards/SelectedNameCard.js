@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Card, Button, Image} from 'react-bootstrap';
-import './CSS/Dashboard.css';
+import '../CSS/Dashboard.css';
 
 const SelectedNameCard = (props) => {
     return (

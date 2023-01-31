@@ -1,6 +1,6 @@
 import {useState, useEffect, React} from 'react'
 import {Card, Button} from 'react-bootstrap';
-import './CSS/Dashboard.css';
+import '../CSS/Dashboard.css';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import {BLOCKS, INLINES} from '@contentful/rich-text-types'
 

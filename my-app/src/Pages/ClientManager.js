@@ -1,5 +1,5 @@
 import {useState, useEffect, React} from 'react'
-import ModuleCard from '../Components/ModuleCard';
+import ModuleCard from '../Components/Cards/ModuleCard';
 import useContentful from '../useContenful';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
