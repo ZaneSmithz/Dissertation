@@ -44,8 +44,10 @@ const ClientManager = () => {
 
     return (
         <div className="homeCardTopSpacing mx-5" md={3}>
-          <ModuleCard moduleItems={moduleCollection.items} />
-
+          {moduleCollection.items.map((item) =>
+          <ModuleCard item={item} />
+          )}
+          
           
         </div>
         
