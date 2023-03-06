@@ -1,7 +1,6 @@
 import {useState, useEffect, React} from 'react'
-import SideBar from '../Components/Navigation/SideBar';
 import {Container, Row, Col} from 'react-bootstrap'
-import {collection, query, orderBy, onSnapshot, getDocs} from "firebase/firestore"
+import {collection, query, onSnapshot} from "firebase/firestore"
 import {db} from '../firebase'
 import '../Components/CSS/Dashboard.css';
 import HomeCard from '../Components/Cards/HomeCard';

@@ -15,7 +15,14 @@ query {
             block {
               __typename
               ...on Chapter {
+                chapterId
+                userInput
                 chapterTitle
+                chapterImage{
+                  title
+              		contentType
+                  url
+                }
                 chapterActivity{
                   json
                 }

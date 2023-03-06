@@ -9,15 +9,8 @@ const ModuleCard = ({ item }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
 
-    const richTextOptions = {
-        renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => {
-                return <span> hello world! </span>
-            }
-        }
-    }
+    console.log(item);
 
     return (
         <Fragment>
@@ -40,10 +33,13 @@ const ModuleCard = ({ item }) => {
         </Modal.Header>
 
         <Modal.Body>
-         {item.moduleChapters.links.entries.block.map((chapter) => 
-            <p> {chapter.chapterTitle} </p> )}
-
-            
+          {item.moduleChapters.links.entries.block.map(chapter => 
+            <div>
+              <p> {chapter.chapterTitle} </p> 
+              {chapter.chapterActivity.json.content.map((content) =>
+                <p> {content.content[0].value} </p>)} 
+            </div>
+        )}
         </Modal.Body>
 
         <Modal.Footer>

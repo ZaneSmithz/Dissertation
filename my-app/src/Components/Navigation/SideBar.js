@@ -4,7 +4,6 @@ import '../CSS/Dashboard.css';
 import { UseAuth } from '../../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-
 const SideBar = (props) => {
     const { currentUser, logout } = UseAuth();
     const [error, setError] = useState("");
@@ -29,7 +28,7 @@ const SideBar = (props) => {
                     <Nav.Link href="/dashboard">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item className=" d-flex justify-content-center  liNavLink">
-                    <Nav.Link href="/manager">Profile</Nav.Link>
+                    <Nav.Link href="/chat">Chat</Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="d-flex justify-content-center liNavLink">
                     <Nav.Link href="/manager">Client</Nav.Link>
